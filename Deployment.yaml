@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ia-qualificar-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ia-api
+  template:
+    metadata:
+      labels:
+        app: ia-api
+    spec:
+      containers:
+        - name: api
+          image: registry.access.redhat.com/ubi9/ubi-minimal
+          ports:
+            - containerPort: 8080
+          env:
+            - name: CREDENCIAIS_DW
+              valueFrom:
+                secretKeyRef:
+                  name: dw-secret
+                  key: CREDENCIAIS_DW
