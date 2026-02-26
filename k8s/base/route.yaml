@@ -1,0 +1,12 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: qualificar-partes
+spec:
+  to:
+    kind: Service
+    name: qualificar-partes
+  port:
+    targetPort: 80
+  tls:
+    termination: edge
