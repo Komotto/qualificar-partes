@@ -1,13 +1,13 @@
 resources:
   - ../../base
 
-namePrefix: prod-
+namePrefix: prd-
 
-namespace: seu-projeto-prod
+namespace: seu-projeto-prd
 
 images:
   - name: image-registry.openshift-image-registry.svc:5000/qualificar-partes
-    newTag: prod
+    newTag: prd
 
 patches:
   - target:
