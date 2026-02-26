@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: qualificar-partes
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: qualificar-partes
+  template:
+    metadata:
+      labels:
+        app: qualificar-partes
+    spec:
+      containers:
+        - name: api
+          image: image-registry.openshift-image-registry.svc:5000/seu-projeto/qualificar-partes:latest
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - secretRef:
+                name: credenciais-dw
