@@ -6,7 +6,7 @@ namePrefix: dev-
 namespace: seu-projeto-dev
 
 images:
-  - name: image-registry.openshift-image-registry.svc:5000/qualificar-partes
+  - name: image-registry.openshift-image-registry.svc:5000/vac-testes/qualificar-partes
     newTag: dev
 
 patches:
