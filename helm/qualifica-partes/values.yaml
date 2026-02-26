@@ -1,0 +1,19 @@
+replicaCount: 1
+
+image:
+  repository: image-registry.openshift-image-registry.svc:5000//qualificar-partes
+  tag: latest
+  pullPolicy: Always
+
+service:
+  port: 8080
+
+route:
+  host: qualificar-partes.apps.ocp-dev.i.tj.pa.gov.br
+
+env:
+  DW_USER: usuario
+  DW_PASSWORD: senha
+  DW_HOST: host
+  DW_PORT: "1521"
+  DW_SERVICE: service
