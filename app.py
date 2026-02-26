@@ -7,6 +7,10 @@ app = FastAPI()
 LOCK_FILE = "/tmp/process.lock"
 ROOT_SCRIPT = "/app/datawarehouse/scripts/ia-qualificarpartes/root.sh"
 
+@app.get("/ping")
+def ping():
+    return {"message": "pong"}
+
 @app.get("/")
 def health():
     return {"status": "API ativa"}
