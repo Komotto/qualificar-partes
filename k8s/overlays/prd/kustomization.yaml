@@ -1,0 +1,19 @@
+resources:
+  - ../../base
+
+namePrefix: prod-
+
+namespace: seu-projeto-prod
+
+images:
+  - name: image-registry.openshift-image-registry.svc:5000/qualificar-partes
+    newTag: prod
+
+patches:
+  - target:
+      kind: Deployment
+      name: qualificar-partes
+    patch: |-
+      - op: replace
+        path: /spec/replicas
+        value: 3
