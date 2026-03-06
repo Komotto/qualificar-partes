@@ -5,8 +5,9 @@ metadata:
 spec:
   to:
     kind: Service
-    name: qualificar-partes
+    name: dev-qualificar-partes
   port:
-    targetPort: 80
+    targetPort: http
   tls:
     termination: edge
+    insecureEdgeTerminationPolicy: Redirect
