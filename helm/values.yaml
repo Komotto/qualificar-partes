@@ -1,16 +1,12 @@
 replicaCount: 1
-
 image:
-  repository: image-registry.openshift-image-registry.svc:5000/qualificar-partes
+  repository: image-registry.openshift-image-registry.svc:5000/vac-testes/qualificar-partes-git
   tag: latest
   pullPolicy: Always
 
 service:
-  port: 8080
+  port: 80
+  targetPort: 8080
 
-route:
-  enabled: true
-  host: qualificar-partes.apps.ocp-dev.seudominio.gov.br
-
-env:
-  secretName: credenciais-dw
+app:
+  name: qualificar-partes
