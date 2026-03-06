@@ -3,11 +3,12 @@ resources:
 
 namePrefix: dev-
 
-namespace: seu-projeto-dev
+namespace: vac-testes
 
 images:
-  - name: image-registry.openshift-image-registry.svc:5000/vac-testes/qualificar-partes
-    newTag: dev
+  - name: qualificar-partes
+    newName: tjpa-registry-quay-quay-enterprise.apps.ocp-hub.i.tj.pa.gov.br/ca/qualificar-partes
+    newTag: "1.0.0"
 
 patches:
   - target:
@@ -17,3 +18,11 @@ patches:
       - op: replace
         path: /spec/replicas
         value: 1
+
+  - target:
+      kind: Route
+      name: qualificar-partes
+    patch: |-
+      - op: replace
+        path: /spec/to/name
+        value: dev-qualificar-partes
