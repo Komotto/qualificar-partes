@@ -2,7 +2,7 @@ FROM registry.access.redhat.com/ubi9/ubi-minimal
 
 RUN  microdnf install git -y
 
-RUN  git clone https://gitlab.tjpa.jus.br/administracao-de-dados/datawarehouse/scripts/ia-qualificarpartes
+RUN  git clone https://vinicius.carvalho:gitlab.tjpa.jus.br/administracao-de-dados/datawarehouse/scripts/ia-qualificarpartes
 RUN  mkdir -p /app/datawarehouse/scripts/ia-qualificarpartes
 RUN  cp -r datawarehouse/scripts/ia-qualificarpartes
 
