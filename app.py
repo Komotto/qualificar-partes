@@ -6,6 +6,7 @@ app = FastAPI()
 
 LOCK_FILE = "/tmp/process.lock"
 ROOT_SCRIPT = "/app/datawarehouse/scripts/ia-qualificarpartes/root.sh"
+SCRIPT_DIR = "/app/datawarehouse/scripts/ia-qualificarpartes"
 
 @app.get("/ping")
 def ping():
@@ -23,7 +24,11 @@ def executar():
     open(LOCK_FILE, "w").close()
 
     try:
-        subprocess.run(["bash", ROOT_SCRIPT], check=True)
+        subprocess.run(
+    ["bash", ROOT_SCRIPT],
+    cwd="/app/datawarehouse/scripts/ia-qualificarpartes",
+    check=True
+    )
     except subprocess.CalledProcessError as e:
         return {"erro": str(e)}
     finally:
