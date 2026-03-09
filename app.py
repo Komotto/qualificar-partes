@@ -9,7 +9,7 @@ ROOT_SCRIPT = "/app/datawarehouse/scripts/ia-qualificarpartes/root.sh"
 
 @app.get("/ping")
 def ping():
-    return {"message": "pong"}
+    return {"message": "ativa"}
 
 @app.get("/")
 def health():
