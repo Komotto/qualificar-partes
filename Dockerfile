@@ -2,13 +2,13 @@ FROM registry.access.redhat.com/ubi9/ubi-minimal
 
 RUN  microdnf install git -y
 
-RUN  git clone https://gitlab.tjpa.jus.br/administracao-de-dados/datawarehouse/-/tree/master/scripts/ia-qualificarpartes
-RUN  mkdir -p /app/datawarehouse/-/tree/master/scripts/ia-qualificarpartes
-RUN  cp -r datawarehouse/-/tree/master/scripts/ia-qualificarpartes
+RUN  git clone https://gitlab.tjpa.jus.br/administracao-de-dados/datawarehouse/scripts/ia-qualificarpartes
+RUN  mkdir -p /app/datawarehouse/scripts/ia-qualificarpartes
+RUN  cp -r datawarehouse/scripts/ia-qualificarpartes
 
 WORKDIR  /app
 
-RUN  ls -R /app/datawarehouse/-/tree/master/scripts/ia-qualificarpartes
+RUN  ls -R /app/datawarehouse/scripts/ia-qualificarpartes
 
 COPY . .
 
@@ -35,7 +35,7 @@ RUN  chmod a+x /usr/local/bin/sql
 RUN  rm sqlcl-latest.zip
 
 #Dependencias do Python
-WORKDIR  /app/datawarehouse/-/tree/master/scripts/ia-qualificarpartes/classificador
+WORKDIR  /app/datawarehouse/scripts/ia-qualificarpartes/classificador
 
 RUN ls -R /app
 
@@ -43,9 +43,9 @@ RUN  pip3 install fastapi uvicorn
 
 #Permissões 
 RUN  chmod -R g+rwX /app /opt/sqlcl
-RUN  chmod +x /app/datawarehouse/-/tree/master/scripts/ia-qualificarpartes*.sh
-RUN  chmod +x /app/datawarehouse/-/tree/master/scripts/ia-qualificarpartes/classificador/*.sh
-RUN  chmod +x /app/datawarehouse/-/tree/master/scripts/ia-qualificarpartes/root.sh
+RUN  chmod +x /app/datawarehouse/scripts/ia-qualificarpartes*.sh
+RUN  chmod +x /app/datawarehouse/scripts/ia-qualificarpartes/classificador/*.sh
+RUN  chmod +x /app/datawarehouse/master/scripts/ia-qualificarpartes/root.sh
 
 RUN  microdnf clean all
 
