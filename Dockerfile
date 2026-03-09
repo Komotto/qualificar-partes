@@ -45,7 +45,7 @@ RUN  pip3 install fastapi uvicorn
 RUN  chmod -R g+rwX /app /opt/sqlcl
 RUN  chmod +x /app/datawarehouse/scripts/ia-qualificarpartes/*.sh
 RUN  chmod +x /app/datawarehouse/scripts/ia-qualificarpartes/classificador/*.sh
-RUN  chmod +x /app/datawarehouse/master/scripts/ia-qualificarpartes/root.sh
+RUN  chmod +x /app/datawarehouse/scripts/ia-qualificarpartes/root.sh
 
 RUN  microdnf clean all
 
