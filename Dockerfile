@@ -4,7 +4,7 @@ RUN  microdnf install git -y
 
 RUN  git clone https://gitlab.tjpa.jus.br/administracao-de-dados/datawarehouse
 RUN  mkdir -p /app/datawarehouse/scripts/ia-qualificarpartes
-RUN  cp -r datawarehouse/scripts/ia-qualificarpartes /app/datawarehouse/scripts/
+RUN  cp -r datawarehouse/scripts/ia-qualificarpartes/* /app/datawarehouse/scripts/ia-qualificarpartes/
 
 WORKDIR  /app
 
@@ -37,7 +37,7 @@ RUN  rm sqlcl-latest.zip
 #Dependencias do Python
 WORKDIR  /app/datawarehouse/scripts/ia-qualificarpartes/classificador
 
-RUN ls -R /app
+RUN  ls -R /app
 
 RUN  pip3 install fastapi uvicorn
 
