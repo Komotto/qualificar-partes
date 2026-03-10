@@ -15,6 +15,7 @@ COPY . .
 #Instalar tools
 RUN  microdnf install unzip -y
 RUN  microdnf install wget -y
+RUN  microdnf install findutils -y
 
 #Instalar Java correto para o projeto
 RUN  wget https://download.oracle.com/java/17/archive/jdk-17.0.12_linux-x64_bin.rpm
@@ -33,7 +34,7 @@ RUN  chmod -R a+rX /opt/sqlcl
 RUN  ln -s /opt/sqlcl/bin/sql /usr/local/bin/sql
 RUN  chmod a+x /usr/local/bin/sql
 RUN  rm sqlcl-latest.zip
-
+ENV  HOME=/tmp
 #Dependencias do Python
 WORKDIR  /app/datawarehouse/scripts/ia-qualificarpartes/classificador
 
